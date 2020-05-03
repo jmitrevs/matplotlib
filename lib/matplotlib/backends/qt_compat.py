@@ -43,7 +43,7 @@ elif "PySide.QtCore" in sys.modules:
 # Otherwise, check the QT_API environment variable (from Enthought).  This can
 # only override the binding, not the backend (in other words, we check that the
 # requested backend actually matches).
-elif mpl.rcParams["backend"] in ["Qt5Agg", "Qt5Cairo"]:
+elif mpl.rcParams["backend"] in ["Qt5Agg", "Qt5Cairo", "QtQuick5Agg"]:
     if QT_API_ENV in ["pyqt5", "pyside2"]:
         QT_API = _ETS[QT_API_ENV]
     else:
@@ -66,11 +66,11 @@ else:
 
 
 def _setup_pyqt5():
-    global QtCore, QtGui, QtWidgets, __version__, is_pyqt5, \
+    global QtCore, QtGui, QtWidgets, QtQuick, __version__, is_pyqt5, \
         _isdeleted, _devicePixelRatio, _setDevicePixelRatio, _getSaveFileName
 
     if QT_API == QT_API_PYQT5:
-        from PyQt5 import QtCore, QtGui, QtWidgets
+        from PyQt5 import QtCore, QtGui, QtWidgets, QtQuick
         import sip
         __version__ = QtCore.PYQT_VERSION_STR
         QtCore.Signal = QtCore.pyqtSignal
@@ -78,7 +78,7 @@ def _setup_pyqt5():
         QtCore.Property = QtCore.pyqtProperty
         _isdeleted = sip.isdeleted
     elif QT_API == QT_API_PYSIDE2:
-        from PySide2 import QtCore, QtGui, QtWidgets, __version__
+        from PySide2 import QtCore, QtGui, QtWidgets, QtQuick, __version__
         import shiboken2
         def _isdeleted(obj): return not shiboken2.isValid(obj)
     else:
