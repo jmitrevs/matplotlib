@@ -4,7 +4,7 @@ Render to qtquick from agg.
 
 import numpy as np
 from matplotlib.backends.backend_agg import FigureCanvasAgg
-from .backend_qtquick5 import (
+from .backend_qtquick import (
     QtCore, QtGui, FigureCanvasQtQuick)
 
 

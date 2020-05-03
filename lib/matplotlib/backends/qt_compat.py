@@ -43,7 +43,7 @@ elif "PySide.QtCore" in sys.modules:
 # Otherwise, check the QT_API environment variable (from Enthought).  This can
 # only override the binding, not the backend (in other words, we check that the
 # requested backend actually matches).
-elif mpl.rcParams["backend"] in ["Qt5Agg", "Qt5Cairo", "QtQuick5Agg"]:
+elif mpl.rcParams["backend"] in ["Qt5Agg", "Qt5Cairo", "QtQuickAgg"]:
     if QT_API_ENV in ["pyqt5", "pyside2"]:
         QT_API = _ETS[QT_API_ENV]
     else:

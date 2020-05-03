@@ -39,7 +39,7 @@ _log = logging.getLogger(__name__)
 interactive_bk = ['GTK3Agg', 'GTK3Cairo',
                   'MacOSX',
                   'nbAgg',
-                  'Qt4Agg', 'Qt4Cairo', 'Qt5Agg', 'Qt5Cairo', 'QtQuick5Agg',
+                  'Qt4Agg', 'Qt4Cairo', 'Qt5Agg', 'Qt5Cairo', 'QtQuickAgg',
                   'TkAgg', 'TkCairo',
                   'WebAgg',
                   'WX', 'WXAgg', 'WXCairo']
